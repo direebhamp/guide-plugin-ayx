@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>了解南宫28 — 平台功能与使用说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f6f7fa;
+      line-height: 1.6;
+      color: #1e1f2a;
+    }
+
+    /* 深色头图区域 */
+    .hero {
+      background: linear-gradient(145deg, #0c0e1a 0%, #1b2035 100%);
+      color: #f0f2f8;
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: #b5c0db;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+      font-weight: 300;
+    }
+
+    .hero .summary-box {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(3px);
+      max-width: 720px;
+      margin: 1.8rem auto 0;
+      padding: 1.2rem 1.8rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.95rem;
+      color: #d6def5;
+      line-height: 1.7;
+    }
+
+    /* 浅色正文区 */
+    .wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      flex: 1 1 280px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #12131e;
+      border-left: 5px solid #3d5afe;
+      padding-left: 1rem;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #34364a;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #3d5afe;
+      font-weight: bold;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #3d5afe;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: #3d5afe;
+    }
+
+    .cta-line {
+      background: #ffffff;
+      margin-top: 2.8rem;
+      padding: 1.8rem 2.2rem;
+      border-radius: 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+      font-size: 1rem;
+    }
+
+    .cta-line strong {
+      font-weight: 600;
+    }
+
+    .faq-mini {
+      margin-top: 3rem;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
+      color: #0e0f1c;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #1f2136;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #3d3f55;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 3rem;
+      color: #7b7d93;
+      font-size: 0.85rem;
+      border-top: 1px solid #e4e6f0;
+      padding-top: 2rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .summary-box {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .wrapper {
+        padding: 1.8rem 1rem;
+      }
+      .cta-line {
+        padding: 1.4rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <section class="hero">
+    <h1>南宫28 · 平台概述</h1>
+    <p class="tagline">快速识别用途，了解核心功能与场景</p>
+    <div class="summary-box">
+      如果你正在寻找一个综合性的在线互动平台，<strong>南宫28</strong> 可能符合你的预期。它整合了多种娱乐元素、社交模块与信息聚合功能，适合有明确需求的用户按需使用。下面从亮点、使用建议、常见问题等角度展开说明。
+    </div>
+  </section>
+
+  <!-- 正文区 -->
+  <div class="wrapper">
+
+    <!-- 特点 + 场景 卡片区 -->
+    <div class="card-grid">
+
+      <div class="card">
+        <h3>🔍 平台亮点</h3>
+        <ul>
+          <li>界面设计直观，入口清晰，新人可快速上手</li>
+          <li>多模块并行：动态资讯、互动工具、个人空间</li>
+          <li>响应式适配，桌面与移动端体验一致</li>
+          <li>持续更新功能模块，保持内容的时效性</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🧭 适用场景</h3>
+        <ul>
+          <li>日常消遣：浏览精选内容、参与轻量互动</li>
+          <li>信息获取：关注分类资讯与社区动态</li>
+          <li>社交延伸：与兴趣相近的用户建立联系</li>
+          <li>工具辅助：利用平台内嵌组件提升效率</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>📌 使用建议</h3>
+        <ul>
+          <li>先阅读各模块说明，明确功能边界</li>
+          <li>合理分配在线时间，避免过度沉浸</li>
+          <li>不轻信非官方渠道的信息与链接</li>
+          <li>定期更新密码，保护个人账户安全</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 自然的链接嵌入段落 -->
+    <div class="cta-line">
+      <p><strong>想直接体验？</strong> 你可以通过浏览器进入 <a href="https://cns-cn-ng28.com">南宫28</a> 的主站，所有功能均可在页面中自主探索。本站仅作功能介绍，不收集任何用户数据，请基于自身判断决定是否使用。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h2>🤔 常见疑问摘要</h2>
+
+      <div class="faq-item">
+        <strong>Q：该平台是否需要注册才能使用？</strong>
+        <p>部分内容与工具无需注册即可查看，但完整互动功能（如评论、收藏、订阅）一般需要创建账户。注册流程简单，通常通过邮箱或手机即可完成。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：南宫28 主要面向哪类用户？</strong>
+        <p>它面向有综合信息浏览和轻度社交需求的用户群体，不限于特定年龄段，但建议用户根据自身兴趣和目的自主筛选内容。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：平台内容更新频率如何？</strong>
+        <p>资讯和动态类区域通常每日更新，工具模块则随版本迭代优化。具体更新节奏可留意站内公告或对应版块的时间戳。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Q：使用前需要注意什么？</strong>
+        <p>请确保网络环境安全，不向陌生人透露账户信息。如遇异常链接或收费提示，请通过官方反馈渠道核实。理性使用，充分了解后再参与。</p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      本页面为独立介绍页，与 <a href="https://cns-cn-ng28.com">南宫28</a> 无直接关联，内容仅供说明参考。<br>
+      建议用户根据自身情况判断，合理使用网络资源。
+    </div>
+
+  </div>
+
+</body>
+</html>
